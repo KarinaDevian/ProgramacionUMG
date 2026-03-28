@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+
+// Inserción
+void InsertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int clave = arr[i];
+        int j = i - 1;
+
+        while (j >= 0 && arr[j] > clave) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = clave;
+    }
+}
+
+// Seleccion
+void SelectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int min = i;
+
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+
+        swap(arr[i], arr[min]);
+    }
+}
+
+// Quicksort
+int particion(int arr[], int inicio, int fin) {
+    int pivote = arr[fin];
+    int i = inicio - 1;
+
+    for (int j = inicio; j < fin; j++) {
+        if (arr[j] < pivote) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+
+    swap(arr[i + 1], arr[fin]);
+    return i + 1;
+}
+
+void QuickSort(int arr[], int inicio, int fin) {
+    if (inicio < fin) {
+        int pi = particion(arr, inicio, fin);
+        QuickSort(arr, inicio, pi - 1);
+        QuickSort(arr, pi + 1, fin);
+    }
+}
+int main() {
+    int arr1[] = {5, 2, 1, 8, 3};
+    int arr2[] = {5, 2, 1, 8, 3};
+    int arr3[] = {5, 2, 1, 8, 3};
+    int n = 5;
+
+    // Mostrar original
+    cout << "Arreglo original: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr1[i] << " ";
+    }
+    cout << endl;
+
+    // Inserción
+    InsertionSort(arr1, n);
+    cout << "Insertion Sort: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr1[i] << " ";
+    }
+    cout << endl;
+
+    // Selección
+    SelectionSort(arr2, n);
+    cout << "Selection Sort: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr2[i] << " ";
+    }
+    cout << endl;
+
+    // QuickSort
+    QuickSort(arr3, 0, n - 1);
+    cout << "QuickSort: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr3[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
