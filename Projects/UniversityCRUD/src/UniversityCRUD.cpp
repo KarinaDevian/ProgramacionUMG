@@ -136,11 +136,11 @@ void grabarAlumno(pqxx::connection* conn)
 void modificarAlumno(pqxx::connection* conn)
 {
 
-    cout << "\n--- Modificar Alumnos ---" << endl;
-
     // muestra lista para que el usuario identifique el ID
     listarAlumnos(conn);
     string nombres, apellidos, carnet;
+
+    cout << "\n--- Modificar Alumnos ---" << endl;
 
     // solicita ID con validacion numerica
     int id = leerEntero("ID del alumno a modificar: ");
@@ -172,10 +172,11 @@ void modificarAlumno(pqxx::connection* conn)
 void eliminarAlumno(pqxx::connection* conn)
 {
 
-    cout << "\n--- Eliminar Alumnos ---" << endl;
-
     // muestra lista para que el usuario identifique el ID
     listarAlumnos(conn);
+
+    cout << "\n--- Eliminar Alumnos ---" << endl;
+
     int id = leerEntero("ID del alumno a eliminar: ");
 
     // inicia transaccion
@@ -280,10 +281,11 @@ void grabarCurso(pqxx::connection* conn)
 void modificarCurso(pqxx::connection* conn)
 {
 
-    cout << "\n--- Modificar Curso ---" << endl;
-
     listarCursos(conn);
     string nombre, codigo;
+
+    cout << "\n--- Modificar Curso ---" << endl;
+
     int id = leerEntero("ID del curso a modificar: ");
     cout << "Nuevo nombre: ";
     getline(cin, nombre);
@@ -310,9 +312,10 @@ void modificarCurso(pqxx::connection* conn)
 void eliminarCurso(pqxx::connection* conn)
 {
 
+    listarCursos(conn);
+
     cout << "\n--- Eliminar Curso ---" << endl;
 
-    listarCursos(conn);
     int id = leerEntero("ID del curso a eliminar: ");
 
     // inicia transaccion
@@ -420,11 +423,13 @@ void grabarSeccion(pqxx::connection* conn)
 void modificarSeccion(pqxx::connection* conn)
 {
 
-    cout << "\n--- Modificar Seccion ---" << endl;
-
     listarSecciones(conn);
     string nombre, jornada;
+
+    cout << "\n--- Modificar Seccion ---" << endl;
+
     int id = leerEntero("ID de la seccion a modificar: ");
+
     cout << "Nuevo nombre: ";
     getline(cin, nombre);
     cout << "Nueva jornada: ";
@@ -449,9 +454,10 @@ void modificarSeccion(pqxx::connection* conn)
 void eliminarSeccion(pqxx::connection* conn)
 {
 
+    listarSecciones(conn);
+
     cout << "\n--- Eliminar Seccion ---" << endl;
 
-    listarSecciones(conn);
     int id = leerEntero("ID de la seccion a eliminar: ");
 
     // inicia transaccion
@@ -546,10 +552,11 @@ void listarAlumnosCursos(pqxx::connection* conn)
 void asignarCursoAlumno(pqxx::connection* conn)
 {
 
-    cout << "\n--- Asignar Curso ---" << endl;
-
     // muestra alumnos y cursos para facilitar la seleccion
     listarAlumnos(conn);
+
+    cout << "\n--- Asignar Curso ---" << endl;
+
     int alumno_id = leerEntero("ID del alumno: ");
 
     listarCursos(conn);
@@ -583,10 +590,11 @@ void asignarCursoAlumno(pqxx::connection* conn)
 void eliminarAsignacionCurso(pqxx::connection* conn)
 {
 
-    cout << "\n--- Eliminar Asignacion ---" << endl;
-
     // muestra asignaciones para que el usuario identifique el ID
     listarAlumnosCursos(conn);
+
+    cout << "\n--- Eliminar Asignacion ---" << endl;
+
     int id = leerEntero("ID de la asignacion a eliminar: ");
 
     // inicia transaccion y ejecuta DELETE
@@ -667,10 +675,11 @@ void listarAlumnosSeccion(pqxx::connection* conn)
 void asignarSeccionAlumno(pqxx::connection* conn)
 {
 
-    cout << "\n--- Asignar Seccion ---" << endl;
-
     // muestra alumnos para facilitar la seleccion
     listarAlumnos(conn);
+
+    cout << "\n--- Asignar Seccion ---" << endl;
+
     int alumno_id = leerEntero("ID del alumno: ");
 
     // inicia transaccion para verificar asignacion existente
@@ -709,10 +718,11 @@ void asignarSeccionAlumno(pqxx::connection* conn)
 void modificarSeccionAlumno(pqxx::connection* conn)
 {
 
-    cout << "\n--- Modificar Asignacion ---" << endl;
-
     // muestra asignaciones actuales para identificar el ID
     listarAlumnosSeccion(conn);
+
+    cout << "\n--- Modificar Asignacion ---" << endl;
+
     int id = leerEntero("ID de la asignacion a modificar: ");
 
     // muestra secciones disponibles
@@ -737,10 +747,11 @@ void modificarSeccionAlumno(pqxx::connection* conn)
 void eliminarAsignacionSeccion(pqxx::connection* conn)
 {
 
-    cout << "\n--- Eliminar Asignacion ---" << endl;
-
     // muestra asignaciones para que el usuario identifique el ID
     listarAlumnosSeccion(conn);
+
+    cout << "\n--- Eliminar Asignacion ---" << endl;
+
     int id = leerEntero("ID de la asignacion a eliminar: ");
 
     // inicia transaccion y ejecuta DELETE
