@@ -1,41 +1,17 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+ 
+# Visual Studio
 *.exe
-*.out
-*.app
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+x64/
+Debug/
+Release/
+.vs/
+*.vcxproj.user
 
-# debug information files
-*.dwo
+# PostgreSQL dump si tiene credenciales
+# (opcional, comenta si quieres subirlo)
+# *.sql
